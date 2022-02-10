@@ -97,9 +97,8 @@ public class FloorManager : MonoBehaviour
             } else if (horizontalDistance < rippleDiameter && verticalDistance < hammerFaceDepth) {
                 // if the hammer does'nt hit, vertices be down by 粘度
 
-                // ハンマーから遠いほど緩やかに下がる
+                // ハンマーから遠いVertexほど強く下降する
                 float decayRate = (rippleDiameter - horizontalDistance) / (rippleDiameter - hammerDiameter);
-                print("decayrate is " + decayRate);
                 Vector3 force = new Vector3(0, -1 * hammerForce * decayRate, 0);
                 movedVertex = vertex + force;
             }
